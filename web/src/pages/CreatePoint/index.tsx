@@ -116,7 +116,7 @@ const CreatePoint = () => {
         const items = selectedItem;
         
         const data = new FormData();
-
+        
         data.append('name', name);
         data.append('email', email);
         data.append('whatsapp', whatsapp);
@@ -127,14 +127,13 @@ const CreatePoint = () => {
         data.append('latitude', String(latitude));
         data.append('longitude', String(longitude));
         data.append('items', items.join(','));
-
+        
         if(selectedImage){
             data.append('image', selectedImage);
         }
-
+        
         await  api.post('points', data);
-        alert('Ponto de coleta Cadastrado!');
-        history.push('/');
+        history.push('/finish');
     }
 
     return (
